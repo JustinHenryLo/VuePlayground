@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <p>{{todo.title}}</p>
+    <div class = "todo-item" v-bind:class="{'is-complete':todo.completed}">
+        <p>
+            <input type="checkbox" v-on:change="markComplete"/>
+            <!-- v-on: is an event caller, change is the event -->
+            {{todo.title}}</p>
     </div>
 </template>
 
@@ -9,8 +12,12 @@ export default {
     name:"TodoItem",
     props:["todo"],
     data(){
-        return{
-
+        return{}
+    },
+    methods:{
+        markComplete(){
+            this.todo.completed = !this.todo.completed;
+            //todo is the prop, 'this' is the entire todoItem
         }
     }
 }
@@ -18,9 +25,9 @@ export default {
 
 <style scoped>
     .todo-item{
-        background: white;
-        padding: 1-px;
-        border-bottom: 1px
+        background: #f4f4f4;
+        padding: 1px;
+        margin-bottom: 1px;
     }
     .is-complete{
         text-decoration: line-through;
