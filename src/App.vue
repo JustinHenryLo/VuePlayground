@@ -2,7 +2,8 @@
   <div id="app">
     <HelloWorld msg="Hello"/>
     {{name}}
-    <Todo/><!-- custom component imported in script and components json -->
+    <Todo v-bind:param_sample="todos"/><!-- custom component imported in script and components json -->
+    <!-- param_sample is passed as prop -->
   </div>
   <!--
       one div only ^
@@ -30,17 +31,17 @@ export default {
       todos:[
         {
           id: "Todo Uno",
-          title: "Lmao Todo",
+          title: "Lmao Todo 1",
           completed:false
         },
         {
           id: "Todo Dos",
-          title: "Lmao Todo",
+          title: "Lmao Todo 2",
           completed:false
         },
         {
           id: "Todo Tres",
-          title: "Lmao Todo",
+          title: "Lmao Todo 3",
           completed:false
         },
       ]
