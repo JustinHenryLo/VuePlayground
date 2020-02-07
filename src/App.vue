@@ -1,17 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Hello"/>
+    {{name}}
+    <Todo/><!-- custom component imported in script and components json -->
   </div>
+  <!--
+      one div only ^
+      HelloWorld is a component
+      msg is a prop of HelloWold Component 
+  -->
 </template>
+
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import Todo from './components/Todo'
+//no .vue in import
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    Todo //<--- Put todo in components
+  },
+  //data contains all data in page
+  //function returning an object
+  data(){
+    return {
+      name: 'Justin',
+      todos:[
+        {
+          id: "Todo Uno",
+          title: "Lmao Todo",
+          completed:false
+        },
+        {
+          id: "Todo Dos",
+          title: "Lmao Todo",
+          completed:false
+        },
+        {
+          id: "Todo Tres",
+          title: "Lmao Todo",
+          completed:false
+        },
+      ]
+    }
   }
 }
 </script>
