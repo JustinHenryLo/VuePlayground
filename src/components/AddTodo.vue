@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import uuid from 'uuid';
+//import uuid from 'uuid';
 export default {
     name:"AddTodo",
     data(){
@@ -25,11 +25,12 @@ export default {
             //this is used to emulate mongo db giving unique ids
            //uuid.v4 generates a unique id, v4 is just version
            var newTodo = {
-                id:uuid.v4(),
+                //id:uuid.v4(), - this was needed to generate id but now its not needed because jsonplaceholder gives an id if you make a request
                 title:this.title,
                 completed: false
             }
             this.$emit('add-todo',newTodo);
+            this.title = "";
         }
     }
 }
